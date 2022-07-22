@@ -14,7 +14,7 @@ def hello_world():
    request = session.get(url_oc, headers=headers, timeout=5)
    cookies = dict(request.cookies)
    response = session.get(base_url, headers=headers, timeout=5, cookies=cookies)
-   print(response.status_code)
+   print(response.status_code,"hello")
    if response.status_code == 200:
       data = response.json()
       return f'{data}'
