@@ -21,10 +21,13 @@ def hello_world():
       data = response.content
       res = json.loads(data)
       #print(type(res))
-      return jsonify(res)
-   return jsonify({"status_code":response.status_code})
+      return jsonify(result=res)
+   return jsonify(result={"status_code":response.status_code})
 
 if __name__== '__main__':
+   app.config.update(
+   PROPAGATE_EXCEPTIONS=True
+   )
    app.run(debug=True)
    app.logger.addHandler(logging.StreamHandler(sys.stdout))
    app.logger.setLevel(logging.ERROR)
