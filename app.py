@@ -1,5 +1,6 @@
 from flask import Flask
 from flask import jsonify
+import asyncio
 import json
 import requests
 
@@ -24,10 +25,13 @@ async def hello_world():
       return jsonify(result=res)
    return jsonify(result={"status_code":response.status_code})
 
-if __name__== '__main__':
+async def main():
    app.config.update(
    PROPAGATE_EXCEPTIONS=True
    )
-   app.run(debug=True)
+   await app.run(debug=True)
    app.logger.addHandler(logging.StreamHandler(sys.stdout))
    app.logger.setLevel(logging.ERROR)
+
+if __name__== '__main__':
+   asyncio.run(main())
