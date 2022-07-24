@@ -29,6 +29,6 @@ if __name__== '__main__':
    app.config.update(
    PROPAGATE_EXCEPTIONS=True
    )
-   app.run(debug=True)
+   asyncio.run(app.run(debug=True))
    app.logger.addHandler(logging.StreamHandler(sys.stdout))
    app.logger.setLevel(logging.ERROR)
