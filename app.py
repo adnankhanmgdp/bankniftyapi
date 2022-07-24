@@ -1,6 +1,5 @@
 from flask import Flask
 from flask import jsonify
-import asyncio
 import json
 import requests
 
@@ -29,6 +28,6 @@ if __name__== '__main__':
    app.config.update(
    PROPAGATE_EXCEPTIONS=True
    )
-   asyncio.run(app.run(debug=True))
+   app.run(debug=True)
    app.logger.addHandler(logging.StreamHandler(sys.stdout))
    app.logger.setLevel(logging.ERROR)
